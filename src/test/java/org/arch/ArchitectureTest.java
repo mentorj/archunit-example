@@ -1,4 +1,4 @@
-package org.example;
+package org.arch;
 
 import com.tngtech.archunit.junit.AnalyzeClasses;
 import com.tngtech.archunit.junit.ArchTest;
@@ -25,4 +25,9 @@ public class ArchitectureTest {
     private static final ArchRule rule3 =
             noClasses().that().resideInAPackage("..domain..")
                     .should().dependOnClassesThat().resideInAPackage("com.google..");
+
+
+    @ArchTest
+    private static final ArchRule noJavaDateConsumed =
+            noClasses().that().resideInAPackage("org.example..").should().dependOnClassesThat().belongToAnyOf(java.util.Date.class);
 }
