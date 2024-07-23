@@ -15,6 +15,7 @@ public class ArchitectureTest {
                     .byAnyPackage("..adapters..","..ports..");
 
 
+    @ArchTest
     private static final ArchRule rule2 =
             classes().that().resideInAPackage("..adapters..")
                     .should().onlyBeAccessed().byAnyPackage("..app..");
