@@ -24,5 +24,5 @@ public class ArchitectureTest {
     @ArchTest
     private static final ArchRule rule3 =
             noClasses().that().resideInAPackage("..domain..")
-                    .should().dependOnClassesThat().resideInAPackage("com.google.guava..");
+                    .should().dependOnClassesThat().resideInAPackage("com.google..");
 }
