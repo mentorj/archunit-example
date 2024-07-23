@@ -13,4 +13,9 @@ public class ArchitectureTest {
             classes().that().resideInAPackage("..infrastructure..")
                     .should().onlyBeAccessed()
                     .byAnyPackage("..adapters..","..ports..");
+
+
+    private static final ArchRule rule2 =
+            classes().that().resideInAPackage("..adapters..")
+                    .should().onlyBeAccessed().byAnyPackage("..app..");
 }
