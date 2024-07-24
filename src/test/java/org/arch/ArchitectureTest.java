@@ -10,24 +10,28 @@ import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.noClasses;
 public class ArchitectureTest {
 
     @ArchTest
-    private static final ArchRule rule1 =
+    private static final ArchRule restrictDomainClassesUsage =
             classes().that().resideInAPackage("..infrastructure..")
                     .should().onlyBeAccessed()
                     .byAnyPackage("..adapters..","..ports..");
 
 
     @ArchTest
-    private static final ArchRule rule2 =
+    private static final ArchRule restrictadapterClassesUsage =
             classes().that().resideInAPackage("..adapters..")
                     .should().onlyBeAccessed().byAnyPackage("..app..");
 
     @ArchTest
-    private static final ArchRule rule3 =
+    private static final ArchRule domainShouldBeAsPureAsPossible=
             noClasses().that().resideInAPackage("..domain..")
                     .should().dependOnClassesThat().resideInAPackage("com.google..");
 
 
     @ArchTest
-    private static final ArchRule noJavaDateConsumed =
+    private static final ArchRule noJavaDateInCode =
             noClasses().that().resideInAPackage("org.example..").should().dependOnClassesThat().belongToAnyOf(java.util.Date.class);
+
+    @ArchTest
+    private static final ArchRule domainShouldNotDependFromInfra =
+            noClasses().that().resideInAPackage("..domain.model").should().dependOnClassesThat().resideInAPackage("..infrastructure..");
 }

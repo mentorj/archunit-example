@@ -2,7 +2,7 @@ package org.example.app;
 
 import io.vavr.collection.List;
 import org.example.domain.adapters.MQRelatedClass;
-import org.example.infrastructure.DoSomethingWithMQ;
+
 
 import java.time.Instant;
 import java.util.Date;

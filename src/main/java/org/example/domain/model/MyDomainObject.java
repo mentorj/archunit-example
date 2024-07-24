@@ -1,4 +1,4 @@
-package org.example.domain;
+package org.example.domain.model;
 
 import com.google.common.collect.BiMap;
 
